@@ -4,6 +4,8 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import fileUpload from 'express-fileupload'
 import dbConnection from "./database/dbConnection.js";
+import messageRoute from './routes/messageRoute.js'
+
 
 const app = express() 
 
@@ -25,5 +27,8 @@ app.use(fileUpload({
 app.use(cookieParser())
 
 dbConnection()
+
+
+app.use("/api/v1/message",messageRoute)
 
 export default app
