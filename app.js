@@ -3,6 +3,7 @@ import { config } from 'dotenv'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import fileUpload from 'express-fileupload'
+import dbConnection from "./database/dbConnection.js";
 
 const app = express() 
 
@@ -23,5 +24,6 @@ app.use(fileUpload({
 }))
 app.use(cookieParser())
 
+dbConnection()
 
 export default app
