@@ -1,10 +1,11 @@
 import express from 'express'
-import { registerPatient } from '../controller/userController.js'
+import { login, registerPatient } from '../controller/userController.js'
 
 
 const router = express.Router()
 
 router.post("/register/patient",registerPatient)
+router.post("/login",login)
 
 
 
