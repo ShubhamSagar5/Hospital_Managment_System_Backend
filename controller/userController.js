@@ -165,10 +165,6 @@ export const addNewDoctor = asyncHandler(async(req,res,next)=>{
 
     const cloudinaryResponse = await cloudinary.uploader.upload(docAvatar.tempFilePath)
 
-    console.log(cloudinaryResponse)
-    if(!cloudinaryResponse || cloudinaryResponse.error){
-        return 
-    }
 
     const doctor  = await User.create({firstName,lastName,email,phone,aadharNumber,dob,gender,password,doctorDepartment,role:"Doctor",docAvatar:{
         public_id:cloudinaryResponse.public_id,
