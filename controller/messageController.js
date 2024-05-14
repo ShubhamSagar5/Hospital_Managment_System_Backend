@@ -21,3 +21,13 @@ export const sendMessage = asyncHandler(async(req,res,next)=>{
 
    
 })
+
+
+export const getAllMessage = asyncHandler(async(req,res,next)=>{
+    const message = await Message.find() 
+
+    return res.status(200).json({
+        success:true,
+        message
+    })
+})
