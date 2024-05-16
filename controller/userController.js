@@ -45,13 +45,13 @@ export const login = asyncHandler(async(req,res,next)=>{
     }
 
     if(password !== confirmPassword){
-        return next(new ErrorHandler("Password and ConfirmPassword Not Match",400))
+        return next(new ErrorHandler("Password and Confirm-Password Not Match",400))
     }
 
     const user = await User.findOne({email}).select("+password") 
 
     if(!user){
-        return next(new ErrorHandler("User Not Find Please Register!",400))
+        return next(new ErrorHandler("User Not Find Please Register !",400))
     }
 
     const isPasswordMatch = await user.comparePassword(password) 

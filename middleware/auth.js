@@ -7,7 +7,7 @@ export const isAdminAuthenticated = asyncHandler(async(req,res,next)=>{
     const token = req.cookies.adminToken 
 
     if(!token){
-        return next(new ErrorHandler("Admin not authenticated",400 ))
+        return next(new ErrorHandler("Admin Not Authenticated !",400 ))
     }
 
 
@@ -28,7 +28,7 @@ export const  isPatientAuthenticated = asyncHandler(async(req,res,next)=>{
     const token = req.cookies.patientToken 
     
     if(!token){
-        return next(new ErrorHandler("Patient is not authenticted",400))
+        return next(new ErrorHandler("Patient is Not Authenticated !",400))
 
     }
 
