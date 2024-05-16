@@ -14,7 +14,7 @@ export const registerPatient = asyncHandler(async(req,res,next)=>{
         return next(new ErrorHandler("Please fill All the Form",400))
     }
 
-    let user =  await User.findOne({$or:[{firstName},{phone},{email}]})
+    let user =  await User.findOne({$or:[{aadharNumber},{email}]})
 
     if(user){
         return next(new ErrorHandler("User Alredy Register",400))
@@ -26,7 +26,7 @@ export const registerPatient = asyncHandler(async(req,res,next)=>{
 
     const registerUserDeatils = await User.findOne({aadharNumber}).select("-password")
 
-    generateJsonWebToken(user,"User Created Successfully",200,res)
+    generateJsonWebToken(user,"User Register Successfully ",200,res)
 
     // return res.status(200).json({
     //     success:true,

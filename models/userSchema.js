@@ -38,12 +38,12 @@ const userSchema = new mongoose.Schema({
     gender:{
         type:String,
         required:true,
-        enum:["Male","Female"]
+        enum:["Male","Female","Other"]
     },
     password:{
         type:String,
         required:true,
-        minLength:[8,"Password Must Contain at least character"],
+        minLength:[8,"Password Must Contain at least 8 character"],
     },
     role:{
         type:String,
