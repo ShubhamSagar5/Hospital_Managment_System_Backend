@@ -87,7 +87,7 @@ export const addNewAdmin = asyncHandler( async(req,res,next) => {
 
     return res.status(200).json({
         success:true,
-        data:admin,
+        datas:admin,
         message:"New Admin Added Successfully"
     })
 })
