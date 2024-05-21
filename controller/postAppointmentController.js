@@ -6,8 +6,8 @@ import {Appointment} from "../models/appointmentSchema.js"
 export const postAppointment = asyncHandler(async(req,res,next)=>{
 
     const {firstName,lastName ,email,phone,aadharNumber,dob,gender,appointment_date,doctor_firstName,doctor_lastName,department,hasVisited,address} = req.body 
-     
-    if(!firstName || !lastName || !email || !phone || !aadharNumber || !dob || !gender || !appointment_date || !doctor_firstName || !doctor_lastName || !department || !hasVisited || !address){
+     console.log(req.body)
+    if(!firstName || !lastName || !email || !phone || !aadharNumber || !dob || !gender || !appointment_date || !doctor_firstName || !doctor_lastName || !department || !address){
         return next(new ErrorHandler("Please fill full form",400))
     }
 
@@ -17,7 +17,6 @@ export const postAppointment = asyncHandler(async(req,res,next)=>{
         role:"Doctor",
         doctorDepartment:department
     }) 
-
     if(isConflict.length === 0){
         return next(new ErrorHandler("Doctor is not found!",400))
     }
