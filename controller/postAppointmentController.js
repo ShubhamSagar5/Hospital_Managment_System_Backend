@@ -6,7 +6,7 @@ import {Appointment} from "../models/appointmentSchema.js"
 export const postAppointment = asyncHandler(async(req,res,next)=>{
 
     const {firstName,lastName ,email,phone,aadharNumber,dob,gender,appointment_date,doctor_firstName,doctor_lastName,department,hasVisited,address} = req.body 
-     console.log(req.body)
+ 
     if(!firstName || !lastName || !email || !phone || !aadharNumber || !dob || !gender || !appointment_date || !doctor_firstName || !doctor_lastName || !department || !address){
         return next(new ErrorHandler("Please fill full form",400))
     }
